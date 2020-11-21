@@ -44,10 +44,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
         android:text="Add"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/deleteCategoryBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/CategoriesSpn"
+        app:layout_constraintTop_toBottomOf="@+id/productPriceET" />
+
+    <Button
+        android:id="@+id/deleteCategoryBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/addCategoryBtn"
         app:layout_constraintTop_toBottomOf="@+id/productPriceET" />
 
     <Button
@@ -61,25 +73,25 @@
         app:layout_constraintTop_toBottomOf="@+id/addCategoryBtn" />
 
     <Button
-        android:visibility="gone"
         android:id="@+id/modifyProductBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:text="Modify"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/deleteProductBtn"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addCategoryBtn" />
 
     <Button
-        android:visibility="gone"
         android:id="@+id/deleteProductBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="32dp"
         android:text="Delete"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/modifyProductBtn"

@@ -10,8 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.interaccion.parcial2.R;
+import com.interaccion.parcial2.activities.MainActivity;
+import com.interaccion.parcial2.database.DatabaseHelper;
 
 
 public class CategoryRegisterFragment extends Fragment {
@@ -19,6 +22,8 @@ public class CategoryRegisterFragment extends Fragment {
 
     private EditText categoryNameET;
     private Button saveCategoryBtn;
+    private DatabaseHelper myDb;
+
     public CategoryRegisterFragment() {
         // Required empty public constructor
     }
@@ -39,6 +44,7 @@ public class CategoryRegisterFragment extends Fragment {
 
         categoryNameET = view.findViewById(R.id.categoryNameEt);
         saveCategoryBtn = view.findViewById(R.id.saveCategoryBtn);
+        myDb = MainActivity.myDb;
 
         saveCategoryBtn.setOnClickListener(v -> {
 
@@ -51,6 +57,14 @@ public class CategoryRegisterFragment extends Fragment {
             }
 
             //TODO save data on db
+
+            boolean isInserted = myDb.insertCategory(name);
+
+            if (isInserted) {
+                Toast.makeText(getActivity(), "Category inserted correctly!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Problem inserting Category!", Toast.LENGTH_SHORT).show();
+            }
 
             ProductHandlerFragment productHandlerFragment = new ProductHandlerFragment();
 
